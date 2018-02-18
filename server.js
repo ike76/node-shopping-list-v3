@@ -72,9 +72,13 @@ app.post('/recipes', jsonParser, (req, res) => {
   res.status(201).json(item);
 });
 
-
 app.get('/recipes', (req, res) => {
   res.json(Recipes.get());
+})
+
+app.delete('/recipes/:id', (req, res) => {
+  Recipes.delete(req.params.id);
+  console.log(`Deleted recipe with id: ${req.params.id}`)
 })
 
 app.listen(process.env.PORT || 8080, () => {
