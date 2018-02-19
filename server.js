@@ -79,8 +79,9 @@ app.get('/recipes', (req, res) => {
 app.delete('/recipes/:id', (req, res) => {
   Recipes.delete(req.params.id);
   console.log(`Deleted recipe with id: ${req.params.id}`)
-  return res.status(204).end()
+  res.status(204).end() // should this be 'return' res.status..... ?
 })
+
 
 app.listen(process.env.PORT || 8080, () => {
   console.log(`Your app is listening on port ${process.env.PORT || 8080}`);
