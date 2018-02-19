@@ -79,6 +79,7 @@ app.get('/recipes', (req, res) => {
 app.delete('/recipes/:id', (req, res) => {
   Recipes.delete(req.params.id);
   console.log(`Deleted recipe with id: ${req.params.id}`)
+  return res.status(204).end()
 })
 
 app.listen(process.env.PORT || 8080, () => {
